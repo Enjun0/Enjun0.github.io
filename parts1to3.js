@@ -129,11 +129,11 @@ function drawtickmarks() {
 function part2() { //STANDARD VALUES OF SLIDER 134 138
   push();
   part2translation = [margins, margins*3+graphyl]
-  xSlider = createSlider(0, 100, 20, 1);
+  xSlider = createSlider(0, 100, 30, 1);
   xSlider.position(part2translation[0], part2translation[1]);
   xSlider.style('width', graphxl+'px');
   
-  ySlider = createSlider(0, 300, 150, 1);
+  ySlider = createSlider(0, 300, 100, 1);
   ySlider.position(part2translation[0], part2translation[1]+margins);
   ySlider.style('width', graphxl+'px');
   pop();
