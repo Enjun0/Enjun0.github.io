@@ -46,7 +46,7 @@ function draw() {
   let xm = map(xSlider.value(), 0, 100, 0, graphxl);
   line(xm,0,xm,graphyl); //xline
   let ym = map(ySlider.value(), 0, 300, graphyl, 0);
-  line(0,ym,graphxl,ym); //xline
+  line(0,ym,graphxl,ym); //yline
   pop();
 }
 
@@ -72,8 +72,8 @@ function part1() {
   noFill();
   
   line(0,0,0,graphyl);//leftbound
-  line(0,graphyl,graphxl,graphyl);//bottombound
-  line(graphxl,0,graphxl,graphyl);//rightbound
+  line(0,graphyl,graphxl,graphyl); //bottombound
+  line(graphxl,0,graphxl,graphyl); //rightbound
   drawgraph();
   drawtickmarks();
   pop();
