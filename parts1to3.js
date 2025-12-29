@@ -22,7 +22,7 @@ const graphsinverse = [
 ];
 
 function setup() {
-  createCanvas(880, 1000);
+  createCanvas(880, 680);
   background(255, 200, 200);
   part2();
 }
