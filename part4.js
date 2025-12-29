@@ -250,13 +250,13 @@ function circlesmaker(shade, r, boxSize, strokes=false) {
   push();
   ro=r
 
-  // Clip to square [0,0] → [boxSize,boxSize]
+  // clipping to graphxl
   drawingContext.save();
   drawingContext.beginPath();
   drawingContext.rect(0, 0, boxSize, boxSize);
   drawingContext.clip();
 
-  // Circle centers inside the box
+  // circle centers
   cx1 = 0.33 * boxSize;
   cy1 = 0.33 * boxSize;
   cx2 = 0.67 * boxSize;
@@ -266,7 +266,7 @@ function circlesmaker(shade, r, boxSize, strokes=false) {
   let dy = cy2 - cy1;
   d = sqrt(dx * dx + dy * dy);
 
-  // No intersection
+  // if no intersection
   if (d >= 2 * r) {
     fill(shade);
     if (strokes == false) {
@@ -283,7 +283,7 @@ function circlesmaker(shade, r, boxSize, strokes=false) {
     return;
   }
 
-  // Intersection math
+  // if intersects
   let a = d / 2;
   let h = sqrt(r * r - a * a);
   let ux = dx / d;
@@ -343,12 +343,10 @@ function circlesmaker(shade, r, boxSize, strokes=false) {
   pop();
 }
 
-// Internal cache (persists across calls);
 let _distanceField = null;
 let _fieldParams = null;
 
 function estimateArea(r, boxSize, resolution = 2) {
-  // Build distance field once (or rebuild if params changed);
   if (
     !_distanceField ||
     !_fieldParams ||
@@ -403,7 +401,6 @@ function findRadiusForArea(
   let hi = maxR;
   let r = 0;
 
-  // Fewer iterations needed because area estimation is coarse anyway
   for (let i = 0; i < 18; i++) {
     r = (lo + hi) * 0.5;
     const area = estimateArea(r, boxSize);
@@ -414,6 +411,7 @@ function findRadiusForArea(
 
   return r;
 }
+
 function diagonalStripes(boxSize, whiteW, blackW, phaseB, phaseA) {
   noStroke();
 
